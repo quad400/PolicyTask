@@ -5,35 +5,40 @@
 //  Created by Abdulquadri on 7/19/25.
 //
 
+import SwiftUI
+
+enum Tab {
+    case home, policies, claims, profile
+}
 
 struct FooterNavigationView: View {
     @Binding var selectedTab: Tab
 
     var body: some View {
         HStack {
-            Spacer()
-            navItem(title: "Home", systemImage: "house.fill", tab: .home)
-            Spacer()
-            navItem(title: "Policies", systemImage: "doc.plaintext.fill", tab: .policies)
-            Spacer()
-            navItem(title: "Claims", systemImage: "doc.text.magnifyingglass", tab: .claims)
-            Spacer()
-            navItem(title: "Profile", systemImage: "person.fill", tab: .profile)
-            Spacer()
+            tabItem(icon: "house.fill", title: "Home", tab: .home)
+            tabItem(icon: "doc.plaintext.fill", title: "Policies", tab: .policies)
+            tabItem(icon: "doc.text.magnifyingglass", title: "Claims", tab: .claims)
+            tabItem(icon: "person.fill", title: "Profile", tab: .profile)
         }
-        .padding()
+        .padding(.vertical, 10)
         .background(Color(.systemGray6))
-        .font(.caption)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 
-    private func navItem(title: String, systemImage: String, tab: Tab) -> some View {
-        VStack {
-            Image(systemName: systemImage)
+    @ViewBuilder
+    private func tabItem(icon: String, title: String, tab: Tab) -> some View {
+        VStack(spacing: 4) {
+            Image(systemName: icon)
+                .font(.system(size: 18, weight: .semibold))
             Text(title)
+                .font(.caption2)
         }
+        .padding(.horizontal, 12)
         .foregroundColor(selectedTab == tab ? .blue : .gray)
         .onTapGesture {
             selectedTab = tab
         }
+        .frame(maxWidth: .infinity)
     }
 }
