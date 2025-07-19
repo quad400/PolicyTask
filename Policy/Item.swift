@@ -1,6 +1,6 @@
 //
 //  Item.swift
-//  Policy
+//  PolicySummary
 //
 //  Created by Abdulquadri on 7/19/25.
 //
