@@ -18,7 +18,7 @@ struct PolicyView: View {
                     .resizable()
                     .frame(width: 28, height: 28)
                     .foregroundColor(.blue)
-                Text("My Insurance App")
+                Text("Policy Summary")
                     .font(.title3).bold()
                 Spacer()
             }

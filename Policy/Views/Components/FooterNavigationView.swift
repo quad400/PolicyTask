@@ -35,7 +35,7 @@ struct FooterNavigationView: View {
                 .font(.caption2)
         }
         .padding(.horizontal, 12)
-        .foregroundColor(selectedTab == tab ? .blue : .gray)
+        .foregroundColor(selectedTab == tab ? .darkBlue : .gray)
         .onTapGesture {
             selectedTab = tab
         }

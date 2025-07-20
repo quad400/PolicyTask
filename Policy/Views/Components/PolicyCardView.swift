@@ -23,7 +23,7 @@ struct PolicyCardView: View {
                         .foregroundColor(.secondary)
                     Text("Status: \(policy.status)")
                         .font(.caption)
-                        .foregroundColor(policy.status.lowercased() == "active" ? .green : .red)
+                        .foregroundColor(policy.status.lowercased() == "active" ? .green : .lightRed)
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 4) {
@@ -33,7 +33,7 @@ struct PolicyCardView: View {
                     Text(policy.nextPremiumDue.formattedDateWithSuffix())
                         .font(.callout)
                         .bold()
-                        .foregroundColor(.blue)
+                        .foregroundColor(.darkBlue)
                 }
             }
 
@@ -41,7 +41,7 @@ struct PolicyCardView: View {
                 Label(policy.isExpanded ? "Hide Details" : "Read More",
                       systemImage: policy.isExpanded ? "chevron.up.circle.fill" : "chevron.down.circle.fill")
                     .font(.subheadline)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.darkBlue)
             }
 
             if policy.isExpanded {
